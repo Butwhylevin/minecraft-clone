@@ -57,6 +57,18 @@ public class World : MonoBehaviour
     }
 }
 
+public class ChunkCoord
+{
+    public int x;
+    public int z;
+
+    public ChunkCoord(int _x, int _z)
+    {
+        x = _x;
+        z = _z;
+    }
+}   
+
 [System.Serializable]
 public class BlockType
 {
