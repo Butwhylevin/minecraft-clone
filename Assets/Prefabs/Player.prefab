@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 6227624495115537791}
   - component: {fileID: 6227624495102663679}
   - component: {fileID: 6227624495104057727}
+  - component: {fileID: 1627146438985206576}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -325,3 +326,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1627146438985206576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227624495105865887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9865e8c607e0c48ba388478089321d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightBlock: {fileID: 519512559254474216, guid: 98fc66b3bfaf36f4f9cb5b105a06301c, type: 3}
+  placeBlock: {fileID: 7564598760579222138, guid: cbb81600bab7f9e4ba64d89cd6689f23, type: 3}
+  checkIncrement: 0.1
+  reach: 8
+  cam: {fileID: 6227624495105565885}
+  selectedBlockText: {fileID: 0}
+  selectedBlockIndex: 1

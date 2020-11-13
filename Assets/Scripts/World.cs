@@ -22,8 +22,6 @@ public class World : MonoBehaviour {
     List<ChunkCoord> chunksToCreate = new List<ChunkCoord>();
     private bool isCreatingChunks;
 
-    public GameObject debugScreen;
-
     private void Start() {
 
         Random.InitState(seed);
@@ -45,10 +43,6 @@ public class World : MonoBehaviour {
 
         if (chunksToCreate.Count > 0 && !isCreatingChunks)
             StartCoroutine("CreateChunks");
-
-        if (Input.GetKeyDown(KeyCode.F3))
-            debugScreen.SetActive(!debugScreen.activeSelf);
-
 
     }
 
@@ -89,6 +83,13 @@ public class World : MonoBehaviour {
         int z = Mathf.FloorToInt(pos.z / VoxelData.ChunkWidth);
         return new ChunkCoord(x, z);
 
+    }
+
+    public Chunk GetChunkFromVector3(Vector3 pos)
+    {
+        int x = Mathf.FloorToInt(pos.x / VoxelData.ChunkWidth);
+        int z = Mathf.FloorToInt(pos.z / VoxelData.ChunkWidth);
+        return chunks[x, z];
     }
 
     void CheckViewDistance () {
