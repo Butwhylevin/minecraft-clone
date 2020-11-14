@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     public Text selectedBlockText;
     public byte selectedBlockIndex = 1;
 
+    //tnt related
+    public GameObject tntPrefab, burstTntPrefab, nukePrefab;
+
     void Start()
     {
         world = GameObject.Find("World").GetComponent<World>();
@@ -93,6 +96,24 @@ public class Player : MonoBehaviour
             if(Input.GetMouseButtonDown(1))
             {
                 world.GetChunkFromVector3(highlightBlock.position).EditVoxel(placeBlock.position, selectedBlockIndex);
+            }
+
+            //Active TNT
+            if(Input.GetMouseButtonDown(2))
+            {
+                string selectedBlock = world.GetVoxelName(highlightBlock.position);
+                Debug.Log(selectedBlock);
+
+                //is it a tnt block?
+                if(selectedBlock == "Tnt")
+                {
+                    //destroy the block
+                    world.GetChunkFromVector3(highlightBlock.position).EditVoxel(highlightBlock.position, 0);
+
+                    //instantiate a tnt there
+                    Vector3 createPos = new Vector3(highlightBlock.position.x+0.6f,highlightBlock.position.y+0.7f,highlightBlock.position.z+0.5f);
+                    GameObject tntInstance = Instantiate(tntPrefab, createPos, highlightBlock.rotation);
+                }
             }
         }
     }

@@ -147,6 +147,18 @@ public class World : MonoBehaviour {
 
     }
 
+    public string GetVoxelName(Vector3 pos)
+    {
+        ChunkCoord thisChunk = new ChunkCoord(pos);
+
+        if (!IsChunkInWorld(thisChunk) || pos.y < 0 || pos.y > VoxelData.ChunkHeight)
+            return "air";
+        if (chunks[thisChunk.x, thisChunk.z] != null && chunks[thisChunk.x, thisChunk.z].isVoxelMapPopulated)
+            return blocktypes[chunks[thisChunk.x, thisChunk.z].GetVoxelFromGlobalVector3(pos)].blockName;
+
+        return blocktypes[GetVoxel(pos)].blockName;
+    }
+
 
     public byte GetVoxel (Vector3 pos) {
 
