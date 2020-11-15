@@ -10,6 +10,8 @@ public class Tnt : MonoBehaviour
     public GameObject particleEffect;
     Chunk thisChunk;
 
+    Vector3 roundPos;
+
     World world;
 
     void Start()
@@ -32,33 +34,22 @@ public class Tnt : MonoBehaviour
 
     void Explode()
     {
-        //create particle emmitter
-        //Instantiate(particleEffect,transform.position,Quaternion.identity);
+        Chunk origChunk = world.GetChunkFromVector3(transform.position);
+        //check points for blocks touching
+        foreach(Transform point in transform.GetChild(2))
+        {
+            Vector3 pos = point.position;
+            roundPos = new Vector3(Mathf.FloorToInt(pos.x),Mathf.FloorToInt(pos.y),Mathf.FloorToInt(pos.z));
+
+            Chunk newChunk = world.GetChunkFromVector3(roundPos);
+            bool surroundingUpdate = false;
+
+            newChunk.EditVoxelNoUpdate(roundPos, 0);
+            
+        }
+        world.GetChunkFromVector3(transform.position).UpdateChunk();
         
-        //check through for blocks touching
-        foreach(Transform point in transform.GetChild(2))
-        {
-            Vector3 pos = point.position;
-            Vector3 roundPos = new Vector3(Mathf.FloorToInt(pos.x),Mathf.FloorToInt(pos.y),Mathf.FloorToInt(pos.z));
-
-            world.GetChunkFromVector3(roundPos).EditVoxelNoUpdate(roundPos, 0);
-        }
-        world.GetChunkFromVector3(transform.position).UpdateChunk();
-
-        Destroy(gameObject);
-    }
-
-    IEnumerator CheckPoints()
-    {
-        foreach(Transform point in transform.GetChild(2))
-        {
-            Vector3 pos = point.position;
-            Vector3 roundPos = new Vector3(Mathf.FloorToInt(pos.x),Mathf.FloorToInt(pos.y),Mathf.FloorToInt(pos.z));
-
-            world.GetChunkFromVector3(roundPos).EditVoxelNoUpdate(roundPos, 0);
-            yield return null;
-        }
-        world.GetChunkFromVector3(transform.position).UpdateChunk();
+        Instantiate(particleEffect,transform.position,Quaternion.identity);
 
         Destroy(gameObject);
     }

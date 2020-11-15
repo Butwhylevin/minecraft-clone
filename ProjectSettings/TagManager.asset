@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enviroment
+  - explosive
   layers:
   - Default
   - TransparentFX

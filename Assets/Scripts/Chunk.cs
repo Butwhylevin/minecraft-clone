@@ -136,6 +136,7 @@ public class Chunk {
         UpdateSurroundingVoxels(xCheck,yCheck,zCheck);
         UpdateChunk();
     }
+
     public void EditVoxelNoUpdate(Vector3 pos, byte newID)
     {
         int xCheck = Mathf.FloorToInt(pos.x);
@@ -146,7 +147,6 @@ public class Chunk {
         zCheck -= Mathf.FloorToInt(chunkObject.transform.position.z);
 
         voxelMap[xCheck,yCheck,zCheck] = newID;
-
         UpdateSurroundingVoxels(xCheck,yCheck,zCheck);
     }
 
