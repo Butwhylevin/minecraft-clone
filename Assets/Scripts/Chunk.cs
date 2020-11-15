@@ -68,7 +68,7 @@ public class Chunk {
 
 	}
 
-	void UpdateChunk () 
+	public void UpdateChunk () 
     {
 		ClearMeshData();
         for (int y = 0; y < VoxelData.ChunkHeight; y++) {
@@ -136,8 +136,21 @@ public class Chunk {
         UpdateSurroundingVoxels(xCheck,yCheck,zCheck);
         UpdateChunk();
     }
+    public void EditVoxelNoUpdate(Vector3 pos, byte newID)
+    {
+        int xCheck = Mathf.FloorToInt(pos.x);
+        int yCheck = Mathf.FloorToInt(pos.y);
+        int zCheck = Mathf.FloorToInt(pos.z);
 
-    void UpdateSurroundingVoxels(int x, int y, int z)
+        xCheck -= Mathf.FloorToInt(chunkObject.transform.position.x);
+        zCheck -= Mathf.FloorToInt(chunkObject.transform.position.z);
+
+        voxelMap[xCheck,yCheck,zCheck] = newID;
+
+        UpdateSurroundingVoxels(xCheck,yCheck,zCheck);
+    }
+
+    public void UpdateSurroundingVoxels(int x, int y, int z)
     {
         Vector3 thisVoxel = new Vector3(x,y,z);
 
