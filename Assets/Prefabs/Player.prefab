@@ -346,5 +346,4 @@ MonoBehaviour:
   selectedBlockText: {fileID: 0}
   selectedBlockIndex: 1
   tntPrefab: {fileID: 7369484472664192283, guid: 4f0c0ab2cf619b3438cc9160167d50a4, type: 3}
-  burstTntPrefab: {fileID: 0}
-  nukePrefab: {fileID: 0}
+  nukePrefab: {fileID: 7369484472664192283, guid: 7484548e9ca02d947b1211506b1af3ac, type: 3}

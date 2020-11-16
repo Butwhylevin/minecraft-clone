@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public byte selectedBlockIndex = 1;
 
     //tnt related
-    public GameObject tntPrefab, burstTntPrefab, nukePrefab;
+    public GameObject tntPrefab, nukePrefab;
 
     void Start()
     {
@@ -113,6 +113,17 @@ public class Player : MonoBehaviour
                     //instantiate a tnt there
                     Vector3 createPos = new Vector3(highlightBlock.position.x+0.6f,highlightBlock.position.y+0.7f,highlightBlock.position.z+0.5f);
                     GameObject tntInstance = Instantiate(tntPrefab, createPos, highlightBlock.rotation);
+                }
+
+                //is it a nuke?
+                if(selectedBlock == "Nuke")
+                {
+                    //destroy the block
+                    world.GetChunkFromVector3(highlightBlock.position).EditVoxel(highlightBlock.position, 0);
+
+                    //instantiate a tnt there
+                    Vector3 createPos = new Vector3(highlightBlock.position.x+0.6f,highlightBlock.position.y+0.7f,highlightBlock.position.z+0.5f);
+                    GameObject tntInstance = Instantiate(nukePrefab, createPos, highlightBlock.rotation);
                 }
             }
         }

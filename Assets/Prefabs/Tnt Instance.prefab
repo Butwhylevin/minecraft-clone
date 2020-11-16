@@ -4085,8 +4085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 200
-  particleEffect: {fileID: 2179027094321934942, guid: 5ad3dedf37337ed43a5edbbfcbd46e80, type: 3}
-  explosivePower: 1000
+  particleEffect: {fileID: 5608183836376538197, guid: 5ad3dedf37337ed43a5edbbfcbd46e80, type: 3}
 --- !u!1 &7369484473662099899
 GameObject:
   m_ObjectHideFlags: 0
