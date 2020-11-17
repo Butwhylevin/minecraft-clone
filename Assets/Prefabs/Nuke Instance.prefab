@@ -29459,6 +29459,7 @@ GameObject:
   - component: {fileID: 7369484472664192280}
   - component: {fileID: 7369484472664192284}
   - component: {fileID: 5302378246127032264}
+  - component: {fileID: -2114381230198413739}
   m_Layer: 0
   m_Name: Nuke Instance
   m_TagString: Untagged
@@ -29573,9 +29574,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adddae2de19eab349a249a1db023d39e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 200
+  waitTime: 500
   particleEffect: {fileID: 183248, guid: 71415d27a54bd424da0da4a20438409a, type: 3}
-  nuclear: 1
+--- !u!111 &-2114381230198413739
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7369484472664192283}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: a33d663f0836e47469287f100e3a365a, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: a33d663f0836e47469287f100e3a365a, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &7369484473662099899
 GameObject:
   m_ObjectHideFlags: 0
@@ -34862,7 +34878,7 @@ SphereCollider:
   m_GameObject: {fileID: 8326593632825811465}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}

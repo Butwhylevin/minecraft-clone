@@ -11,7 +11,6 @@ public class Tnt : MonoBehaviour
     Chunk thisChunk;
 
     Vector3 roundPos;
-    public bool nuclear = false;
 
     World world;
 
@@ -46,13 +45,11 @@ public class Tnt : MonoBehaviour
             bool surroundingUpdate = false;
 
             newChunk.EditVoxelNoUpdate(roundPos, 0);
-            
         }
-        world.GetChunkFromVector3(transform.position).UpdateChunk();
 
-        GameObject part = Instantiate(particleEffect,transform.position,Quaternion.identity);
-        if(nuclear)
-            part.GetComponent<Nuke>().Detonate();
+        Instantiate(particleEffect,transform.position,Quaternion.identity);
+
+        world.GetChunkFromVector3(transform.position).UpdateChunk();
         Destroy(gameObject);
     }
 }
