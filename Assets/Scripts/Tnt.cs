@@ -47,7 +47,11 @@ public class Tnt : MonoBehaviour
             newChunk.EditVoxelNoUpdate(roundPos, 0);
         }
 
-        Instantiate(particleEffect,transform.position,Quaternion.identity);
+        //Quaternion rot  = new Quaternion(90,0,0,0);
+        GameObject part = Instantiate(particleEffect,transform.position,Quaternion.identity);
+        if (part.GetComponent<Nuke>() != null)
+            part.GetComponent<Nuke>().Detonate();
+
 
         world.GetChunkFromVector3(transform.position).UpdateChunk();
         Destroy(gameObject);
